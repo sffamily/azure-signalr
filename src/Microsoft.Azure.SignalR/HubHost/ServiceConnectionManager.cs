@@ -42,6 +42,7 @@ namespace Microsoft.Azure.SignalR
             }
 
             var index = Math.Abs(partitionKey.GetHashCode() % _serviceConnections.Count);
+            Console.WriteLine($"PartitionKey: {partitionKey}, Hash: {index}");
             await _serviceConnections[index].WriteAsync(serviceMessage);
         }
     }
